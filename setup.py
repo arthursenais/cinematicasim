@@ -11,7 +11,7 @@ setup(
     license = 'MIT',
     classifiers = [
         'Natural Language :: Portuguese (Brazilian)',
-        'Operating System :: Linux',
+        'Operating System :: POSIX :: Linux',
         'Topic :: Scientific/Engineering :: Physics'
     ]
 )
