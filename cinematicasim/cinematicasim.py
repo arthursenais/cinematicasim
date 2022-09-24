@@ -73,7 +73,7 @@ def s_funcao_tempo():
 #Função horária da posição em função da posição
 def s_funcao_s():
     clear()
-    print("\nFunção horária da aceleração em função da posição")
+    print("\nFunção horária da posição em função da posição")
     s = float(input("Posição final:\n--->"))
     so = float(input("Posição inicial:\n-->"))
     vo = float(input("Velocidade inicial:\n--->"))
@@ -82,7 +82,7 @@ def s_funcao_s():
     print(f'Aceleração= {a}')
     simular = input("[1] para iniciar simulação\n[Enter] para voltar\n--->")
     if simular == '1':
-        simulacao_afuncaoposicao(so,vo,inter_temp,s)
+        simulacao_sfuncaoposicao(so,vo,inter_temp,s)
     else:
         return
     voltar()
@@ -167,7 +167,7 @@ def unif_var():
     print("\nMovimento uniformemente variado:\n")
     print("\n[1] Aceleração média")
     print("\n[2] Função horária da velocidade")
-    print("\n[3] Função horária da aceleração em função da posiçao")
+    print("\n[3] Função horária da posição em função da posiçao")
     print("\n[4] Função horária da posição em função do tempo")
     print("\n[5] Equação de Torricelli (descobrir velocidade)")
     print("\n[6] Equação de Torricelli (descobrir aceleração)")
@@ -374,7 +374,7 @@ def simulacao_sfuncaotempo(so,vo,inter_temp,a):
     sleep(0.5)
     print(f'v = {obj.velocidade.x} ')
 
-def simulacao_afuncaoposicao(so,vo,inter_temp,s):
+def simulacao_sfuncaoposicao(so,vo,inter_temp,s):
     a = (so + (vo * inter_temp) + ((1/2) * (inter_temp**2))) / s
     #cena:
     scene.background = color.hsv_to_rgb(vector(0.1,0.1,0.2))
