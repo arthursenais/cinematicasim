@@ -1,8 +1,8 @@
 #..........importar bibliotecas e definir funçoes opcionais
 import os
+import time
 def clear(): #..........Define a função para limpar o terminal (linux)
     os.system('clear')
-import time
 def sleep(x): #.........Define a função para simplificar o sleep da biblioteca time
     time.sleep(x)
 def voltar():
@@ -27,6 +27,23 @@ def v_funcao(): #...............Função horária da velocidade
     v = vo + (a * t)
     print(f'Velocidade = {v}')
     voltar()
+def v_funcao_vert():
+    clear()
+    print("\nFunção horária da velocidade no movimento vertical\n")
+    vo = float(input("Velocidade inicial:\n--->"))
+    t = float(input("Tempo\n--->"))
+    v = vo + (9.8 * t)
+    print(f'Velocidade = {v}')
+    voltar()
+def s_funcao_tempo_vert():
+    clear()
+    print("\nFunção horária da posição em função do tempo no movimento vertical")
+    so = float(input("Altura inicial:\n--->"))
+    vo = float(input("Velocidade inicial:\n--->"))
+    t = float(input("Tempo\n--->"))
+    a = 9.8
+    s = so + (vo * t) + ((1/2)* a*(t**2))
+    print(f'Altura = {s}')
 
 def s_funcao_tempo():#..............Função horária da posição em função do tempo
     clear()
@@ -39,7 +56,7 @@ def s_funcao_tempo():#..............Função horária da posição em função d
     print(f'Posição = {s}')
     voltar()
 
-def torricelli():
+def torricelli(): #..........equação torricelli
     clear()
     print("\nTorricelli")
     vo = float(input("Velocidade inicial:\n--->"))
@@ -48,7 +65,14 @@ def torricelli():
     v = vo**2 + 2*a*dist_perc
     print(f'V² = {v}')
     voltar()
-
+def torricelli_vert():
+    clear()
+    print("\nTorricelli no movimento vertical")
+    vo = float(input("Velocidade inicial:\n--->"))
+    dist_perc = float(input("Distância percorrida:\n--->"))
+    a = 9.8
+    v = vo**2 + 2*a*dist_perc
+    print(f'V² = {v}')
 #.......funções principais
 def velocidade():
     clear()
@@ -67,7 +91,11 @@ def s_funcao():#.................função horaria do deslocamento MU
     inter_temp = float(input("Intervalo de tempo:\n--->"))
     s =   so + v * inter_temp#...............função horária do deslocamento
     print(f"S = {s}")
-    voltar()
+    simular = int(input("[1] para iniciar simulação\n"))
+    if simular == 1:
+        print("")
+    else:
+        voltar()
 
 def unif_var():#....................uniformemente variado
     clear()
@@ -89,6 +117,25 @@ def unif_var():#....................uniformemente variado
     elif unif_var_escolha == 4:
         sleep(1)
         torricelli()
+
+def vert():
+    clear()
+    print("\nMovimento vertical:\n")
+    print("\n[1] Função horária da velocidade no movimento vertical")
+    print("\n[2] Função horária da posição em função do tempo no movimento vertical")
+    print("\n[3] Equação de Torricelli no movimento vertical")
+    unif_var_escolha = int(input('--->'))
+    if unif_var_escolha == 1:
+        sleep(1)
+        v_funcao_vert()
+    elif unif_var_escolha == 2:
+        sleep(1)
+        s_funcao_tempo_vert()
+    elif unif_var_escolha == 3:
+        sleep(1)
+        torricelli_vert()
+        
+        
 
 menuprincipal = 20
 while menuprincipal != 0:
@@ -118,8 +165,12 @@ while menuprincipal != 0:
     elif menuprincipal == 4: #........................movimento vertical
         print(f'Você selecionou [{menuprincipal}]')
         sleep(1)
-       # vert()
+        vert()
     elif menuprincipal == 5:#.......................lançamento obliquo
         print(f'Você selecionou [{menuprincipal}]')
         sleep(1)
         #oblq()
+    elif menuprincipal == 6:#.......................lançamento obliquo
+        print(f'Você selecionou [{menuprincipal}]')
+        simulacao()
+    
