@@ -5,4 +5,4 @@
    
 site das formulas: https://www.sofisica.com.br/conteudos/FormulasEDicas/formulas.php  
   
-  Biblioteca necessária: vpython  
+  Bibliotecas necessárias: vpython, time, termcolor  
