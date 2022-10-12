@@ -4,7 +4,7 @@ print_red = lambda x: print(colored(x,'red'))
 print_blue = lambda x: print(colored(x,'blue'))
 print_yellow = lambda x: print(colored(x,'yellow'))
 print_green = lambda x: print(colored(x,'green'))
-input_teste = lambda x: input(colored(x,attrs=["bold"]))
+input_teste = lambda x: input(colored(x,'blue',attrs=["bold"]))
 import os
 import time
 from vpython import *
@@ -23,7 +23,7 @@ def a_media():
     v_var = float(input_teste("Variação da velocidade:\n--->"))
     inter_temp = float(input_teste("Intervalo de tempo:\n--->"))
     a_media = v_var / inter_temp
-    print(f'Aceleração média = {a_media}')
+    print_red(f'Aceleração média = {a_media}')
     voltar()
 #Função horária da velocidade:
 def v_funcao(): 
@@ -33,7 +33,7 @@ def v_funcao():
     a = float(input_teste("Aceleração\n--->"))
     inter_temp = float(input_teste("Tempo\n--->"))
     v = vo + (a * inter_temp)
-    print(f'V = {v}')
+    print_red(f'V = {v}')
     simular = input_teste("[1] para iniciar simulação\n[Enter] para voltar\n--->")
     if simular == '1':
         simulacao_vfuncao(vo,a,inter_temp)
@@ -49,7 +49,7 @@ def s_funcao_tempo():
     inter_temp = float(input_teste("Tempo\n--->"))
     a = float(input_teste("Aceleração\n--->"))
     s = so + (vo * inter_temp) + ((1/2)* a*(inter_temp**2))
-    print(f'Posição = {s}')
+    print_red(f'Posição = {s}')
     simular = input_teste("[1] para iniciar simulação\n[Enter] para voltar\n--->")
     if simular == '1':
         simulacao_sfuncaotempo(so,vo,inter_temp,a)
@@ -65,7 +65,7 @@ def a_funcao_s():
     vo = float(input_teste("Velocidade inicial:\n--->"))
     inter_temp = float(input_teste("Tempo\n--->"))
     a = (so + (vo * inter_temp) + ((1/2) * (inter_temp**2))) / s
-    print(f'Aceleração= {a}')
+    print_red(f'Aceleração= {a}')
     simular = input_teste("[1] para iniciar simulação\n[Enter] para voltar\n--->")
     if simular == '1':
         simulacao_afuncaoposicao(so,vo,inter_temp,s)
@@ -80,7 +80,7 @@ def torricelli_v():
     a = float(input_teste("Aceleração\n--->"))
     dist_perc = float(input_teste("Distância percorrida:\n--->"))
     v = pow((vo**2) + 2*a*dist_perc,1/2)
-    print(f'V² = {v}')
+    print_red(f'V² = {v}')
     simular = input_teste("[1] para iniciar simulação\n[Enter] para voltar\n--->")
     if simular == '1':
         simulacao_torricelliv(vo, a, dist_perc)
@@ -95,7 +95,7 @@ def torricelli_a():
     v = float(input_teste("Velocidade final\n--->"))
     dist_perc = float(input_teste("Distância percorrida:\n--->"))
     a = ((vo**2) + (v**2))  / (2 * dist_perc)
-    print(f'V² = {a}')
+    print_red(f'V² = {a}')
     simular = input_teste("[1] para iniciar simulação\n[Enter] para voltar\n--->")
     if simular == '1':
         simulacao_torricellia(vo, v, dist_perc)
@@ -109,7 +109,7 @@ def newtonforca():
     m = float(input_teste("Massa:\n--->"))
     a = float(input_teste("Aceleração escalar\n--->"))
     f = m*a
-    print(f'F = {f}')
+    print_red(f'F = {f}')
     simular = input_teste("[1] para iniciar simulação\n[Enter] para voltar\n--->")
     if simular == '1':
         simulacaonewton(m,a,f)
@@ -122,7 +122,7 @@ def newtonaceleracao():
     m = float(input_teste("Massa:\n--->"))
     f = float(input_teste("Força\n--->"))
     a = f/m
-    print(f'A = {a}')
+    print_red(f'A = {a}')
     simular = input_teste("[1] para iniciar simulação\n[Enter] para voltar\n--->")
     if simular == '1':
         simulacaonewton(m,a,f)
@@ -135,7 +135,7 @@ def newtonmassa():
     a = float(input_teste("Aceleração escalar:\n--->"))
     f = float(input_teste("Força\n--->"))
     m = f/a
-    print(f'm = {m}')
+    print_red(f'm = {m}')
     simular = input_teste("[1] para iniciar simulação\n[Enter] para voltar\n--->")
     if simular == '1':
         simulacaonewton(m,a,f)
@@ -150,8 +150,8 @@ def aceleracao_ab():
     m_b = float(input_teste("Massa do bloco B:\n--->"))
     f_a = float(input_teste("Intensidade da força sobre o bloco A\n--->"))
     a = f_a / (m_a + m_b)
-    print(f'a = {a}m/s²')
-    simular = input_teste("[1] para iniciar simulação\n[Enter] para voltar\n--->")
+    print_red(f'a = {a}m/s²')
+    simular = input_teste("\n[Enter] para voltar\n--->")
     if simular == '1':
         simulacao_ab(m_b,m_a,f_a,a)
     else:
@@ -163,8 +163,8 @@ def forca_ab():
     m_b = float(input_teste("Massa do bloco B:\n--->"))
     a = float(input_teste("Aceleração:\n--->"))
     f_ab = m_b * a
-    print(f'Fab = {f_ab}N')
-    simular = input_teste("[1] para iniciar simulação\n[Enter] para voltar\n--->")
+    print_red(f'Fab = {f_ab}N')
+    simular = input_teste("\n[Enter] para voltar\n--->")
     if simular == '1':
         simulacao_ab(m_b,a,f_ab)
     else:
@@ -179,7 +179,7 @@ def velocidade():
     dist_perc = float(input_teste("Distância percorrida:\n--->"))
     inter_temp = float(input_teste("Intervalo de tempo:\n--->"))
     vlcmedia = dist_perc/inter_temp #.......................fórmula velocidade média
-    print(f"Velocidade média = {vlcmedia}")
+    print_red(f"Velocidade média = {vlcmedia}")
     voltar()
 #Movimento uniformemente variado:
 def unif_var():
@@ -220,7 +220,7 @@ def s_funcao():
     v = float(input_teste("Velocidade:\n--->"))
     inter_temp = float(input_teste("Intervalo de tempo:\n--->"))
     s =   so + v * inter_temp#...............função horária do deslocamento
-    print(f"S = {s}")
+    print_red(f"S = {s}")
     simular = input_teste("[1] para iniciar simulação\n[Enter] para voltar\n--->")
     if simular == '1':
         simulacao_mru(so,v,inter_temp)
@@ -260,7 +260,7 @@ def pesocorpo():
     m = float(input_teste("Massa:\n--->"))
     g = float(input_teste("Gravidade (padrão = 9.8m/s):\n--->"))
     p = m*g
-    print(f'P = {p}N')
+    print_red(f'P = {p}N')
     voltar()
 #lista de todoas as formulas etc:
 def todos():
@@ -354,11 +354,10 @@ def simulacao_mru(so,v,inter_temp):
     texto = label(pos=vector(obj.pos.x,obj.pos.y - 3,0),text=f'S = {obj.pos.x}',color=color.white,opacity=0,box=False)
     textovelocidade = label(text=f'V ={obj.velocidade.x}',color=color.white,opacity=0,box=False)
     
-    #trail = curve(color=color.white)
     flecha = arrow(pos=obj.pos,axis=obj.velocidade,color=color.blue,round=True,shaftwidth=0.6)
     dt=0.01
     t=0
-    textotempo = label(text=f'{t}',color=color.white,opacity=1,background=color.black,box=False)
+    textotempo = label(pos=vector(0,0,0),color=color.white,opacity=1,background=color.black,box=False)
     while t <= inter_temp:
         rate(100)
         #objeto:
@@ -372,6 +371,8 @@ def simulacao_mru(so,v,inter_temp):
         textovelocidade.pos.y = obj.pos.y + 1
 
         textotempo.text = f'{t:.0f}s'
+        textotempo.pos = obj.pos
+        textotempo.pos.y = obj.pos.y - 5
         #flecha:
         flecha.pos=obj.pos #Flecha do objeto
         flecha.pos.x=obj.pos.x + 0.7
@@ -379,9 +380,8 @@ def simulacao_mru(so,v,inter_temp):
         #cenario camera:
         scene.camera.follow(obj) #cenario
         t=t+dt
-        
     sleep(0.5)
-    print(f'S = {obj.pos.x} ')
+    print_red(f'S = {obj.pos.x} ')
 
 def simulacao_vfuncao(vo,a,inter_temp):
     #cena:
@@ -404,7 +404,7 @@ def simulacao_vfuncao(vo,a,inter_temp):
     textovelocidade = label(text=f'V ={obj.velocidade.x}',color=color.white,opacity=0,box=False)
     dt=0.01
     t=0
-    
+    textotempo = label(pos=vector(0,0,0),color=color.white,opacity=1,background=color.black,box=False)
     while t < inter_temp:
         rate(100)
         obj.velocidade = obj.velocidade + (obj.aceleracao * dt)
@@ -418,6 +418,10 @@ def simulacao_vfuncao(vo,a,inter_temp):
         textovelocidade.pos = textoaceleracao.pos
         textovelocidade.pos.y = textoaceleracao.pos.y - 3
         textovelocidade.text = f'V = {obj.velocidade.x}' 
+
+        textotempo.text = f'{t:.0f}s'
+        textotempo.pos = obj.pos
+        textotempo.pos.y = obj.pos.y - 5
         #flecha:
         flecha.pos=obj.pos
         flecha.pos.x = obj.pos.x + 0.7
@@ -432,7 +436,7 @@ def simulacao_vfuncao(vo,a,inter_temp):
         t=t+dt
         
     sleep(0.5)
-    print(f'v = {obj.velocidade.x} ')
+    print_red(f'v = {obj.velocidade.x} ')
 
 def simulacao_sfuncaotempo(so,vo,inter_temp,a):
     #cena:
@@ -451,6 +455,7 @@ def simulacao_sfuncaotempo(so,vo,inter_temp,a):
     flecha = arrow(pos=obj.pos,axis=obj.velocidade,color=color.blue,round=True,shaftwidth=0.2)
     flechaaceleracao = arrow(pos=obj.pos,axis=obj.aceleracao,color=color.yellow,round=True,shaftwidth=0.2)
 
+    textotempo = label(pos=vector(0,0,0),color=color.white,opacity=1,background=color.black,box=False)
     texto = label(pos=vector(obj.pos.x,obj.pos.y - 3,0),text=f'S = {obj.pos.x}',color=color.white,opacity=0,box=False)
     textoaceleracao = label(pos=flechaaceleracao.pos,text=f'a = {a}²',color=color.white,opacity=0,box=False)
     textovelocidade = label(text=f'V ={obj.velocidade.x}',color=color.white,opacity=0,box=False)
@@ -469,6 +474,10 @@ def simulacao_sfuncaotempo(so,vo,inter_temp,a):
         textoaceleracao.pos.y = flechaaceleracao.pos.y + 1
         textoaceleracao.text = f'a = {obj.aceleracao.x}²'
 
+        textotempo.text = f'{t:.0f}s'
+        textotempo.pos = obj.pos
+        textotempo.pos.y = obj.pos.y - 5
+
         textovelocidade.pos = textoaceleracao.pos
         textovelocidade.pos.y = textoaceleracao.pos.y - 3
         textovelocidade.text = f'V = {obj.velocidade.x}' 
@@ -486,7 +495,7 @@ def simulacao_sfuncaotempo(so,vo,inter_temp,a):
         t=t+dt
         
     sleep(0.5)
-    print(f'v = {obj.velocidade.x} ')
+    print_red(f'v = {obj.velocidade.x} ')
 
 def simulacao_afuncaoposicao(so,vo,inter_temp,s):
     a = (so + (vo * inter_temp) + ((1/2) * (inter_temp**2))) / s
@@ -522,6 +531,11 @@ def simulacao_afuncaoposicao(so,vo,inter_temp,s):
         textoaceleracao.pos.y = flechaaceleracao.pos.y + 1
         textoaceleracao.text = f'a = {obj.aceleracao.x}²'
 
+        textotempo.text = f'{t:.0f}s'
+        textotempo.pos = obj.pos
+        textotempo.pos.y = obj.pos.y - 5
+
+
         textovelocidade.pos = textoaceleracao.pos
         textovelocidade.pos.y = textoaceleracao.pos.y - 3
         textovelocidade.text = f'V = {obj.velocidade.x}' 
@@ -539,7 +553,7 @@ def simulacao_afuncaoposicao(so,vo,inter_temp,s):
         t=t+dt
         
     sleep(0.5)
-    print(f'a = {obj.aceleracao.x} ')
+    print_red(f'a = {obj.aceleracao.x} ')
 
 def simulacao_torricelliv(vo,a,dist_perc):
     #cena:
@@ -558,6 +572,8 @@ def simulacao_torricelliv(vo,a,dist_perc):
     flecha = arrow(pos=obj.pos,axis=obj.velocidade,color=color.blue,round=True,shaftwidth=0.2)
     flechaaceleracao = arrow(pos=obj.pos,axis=obj.aceleracao,color=color.yellow,round=True,shaftwidth=0.2)
 
+
+    textotempo = label(pos=vector(0,0,0),color=color.white,opacity=1,background=color.black,box=False)
     texto = label(pos=vector(obj.pos.x,obj.pos.y - 3,0),text=f'S = {obj.pos.x}',color=color.white,opacity=0,box=False)
     textoaceleracao = label(pos=flechaaceleracao.pos,text=f'a = {a}²',color=color.white,opacity=0,box=False)
     textovelocidade = label(text=f'V ={obj.velocidade.x}',color=color.white,opacity=0,box=False)
@@ -576,6 +592,10 @@ def simulacao_torricelliv(vo,a,dist_perc):
         textoaceleracao.pos.y = flechaaceleracao.pos.y + 1
         textoaceleracao.text = f'a = {obj.aceleracao.x}²'
 
+        textotempo.text = f'{t:.0f}s'
+        textotempo.pos = obj.pos
+        textotempo.pos.y = obj.pos.y - 5
+
         textovelocidade.pos = textoaceleracao.pos
         textovelocidade.pos.y = textoaceleracao.pos.y - 3
         textovelocidade.text = f'V = {obj.velocidade.x}' 
@@ -593,7 +613,7 @@ def simulacao_torricelliv(vo,a,dist_perc):
         t=t+dt
         
     sleep(0.5)
-    print(f'v = {obj.velocidade.x} ')
+    print_red(f'v = {obj.velocidade.x} ')
 
 def simulacao_torricellia(vo,v,dist_perc):
     #cena:
@@ -611,6 +631,8 @@ def simulacao_torricellia(vo,v,dist_perc):
     
     flecha = arrow(pos=obj.pos,axis=obj.velocidade,color=color.blue,round=True,shaftwidth=0.2)
     flechaaceleracao = arrow(pos=obj.pos,axis=obj.aceleracao,color=color.yellow,round=True,shaftwidth=0.2)
+
+    textotempo = label(pos=vector(0,0,0),color=color.white,opacity=1,background=color.black,box=False)
 
     texto = label(pos=vector(obj.pos.x,obj.pos.y - 3,0),text=f'S = {obj.pos.x}',color=color.white,opacity=0,box=False)
     textoaceleracao = label(pos=flechaaceleracao.pos,text=f'a = {a}²',color=color.white,opacity=0,box=False)
@@ -630,6 +652,10 @@ def simulacao_torricellia(vo,v,dist_perc):
         textoaceleracao.pos.y = flechaaceleracao.pos.y + 1
         textoaceleracao.text = f'a = {obj.aceleracao.x}²'
 
+        textotempo.text = f'{t:.0f}s'
+        textotempo.pos = obj.pos
+        textotempo.pos.y = obj.pos.y - 5
+
         textovelocidade.pos = textoaceleracao.pos
         textovelocidade.pos.y = textoaceleracao.pos.y - 3
         textovelocidade.text = f'V = {obj.velocidade.x}' 
@@ -647,7 +673,7 @@ def simulacao_torricellia(vo,v,dist_perc):
         t=t+dt
         
     sleep(0.5)
-    print(f'v = {obj.velocidade.x} ')
+    print_red(f'v = {obj.velocidade.x} ')
 
 def simulacaonewton(m,a,f):
     #cena:
@@ -705,31 +731,36 @@ def simulacao_ab(m_b,m_a,f_a,a):
     scene.width = 1080
     scene.height = 600
     scene.append_to_title("<b>2ª Lei de Newton</b>")
-    scene.append_to_caption(f'\tInformações:\n\tBloco A:\n\tMassa: {m_a}\n\tAceleração: {m_a}\n\tForça aplicada: {f_a}\n\tBloco B:\n\tMassa: {m_b}')
+    scene.append_to_caption(f'\tInformações:\n\tBloco A:\n\tMassa: {m_a}\n\tForça aplicada: {f_a}\n\tBloco B:\n\tMassa: {m_b}')
     scene.align = 'left'
-    obj = box(size=vector(m_a,m_a,m_a),pos=vector(0,0,0),velocidade=vector(0,0,0),massa=vector(m_a,0,0),forca=vector(0,0,0),aceleracao=vector(a,0,0),color=color.red,make_trail=True,trail_color=color.white)
-    objb = box(pos=vector(obj.size.x,0,0),velocidade=vector(0,0,0),massa=vector(m_b,0,0),forca=vector(0,0,0),aceleracao=vector(a,0,0),color=color.blue)
+    obj = sphere(radius = m_a,pos=vector(0,0,0),velocidade=vector(0,0,0),massa=vector(m_a,0,0),forca=vector(0,0,0),aceleracao=vector(a,0,0),color=color.red,make_trail=True,trail_color=color.white)
+    objb = sphere(radius = m_b,pos=vector(obj.pos.x + 2 + obj.radius*2,0,0),velocidade=vector(0,0,0),massa=vector(m_b,0,0),forca=vector(0,0,0),aceleracao=vector(0,0,0),color=color.blue)
 
-    flecha = arrow(pos=obj.pos,axis=obj.velocidade,color=color.blue,round=True,shaftwidth=0.2)
+    flecha = arrow(pos=obj.pos,axis=obj.velocidade,color=color.blue,round=True,shaftwidth=0.2*m_a)
     flechaaceleracao = arrow(pos=obj.pos,axis=obj.aceleracao,color=color.yellow,round=True,shaftwidth=0.2)
-
-    texto = label(pos=vector(obj.pos.x,obj.pos.y - 3,0),text=f'S = {obj.pos.x}',color=color.white,opacity=0,box=False)
-    textob = label(pos=vector(objb.pos.x,objb.pos.y - 3,0),text=f'S = {objb.pos.x}',color=color.white,opacity=0,box=False)
+    textotempo = label(pos=vector(0,0,0),color=color.white,opacity=1,background=color.black,box=False)
+    texto = label(pos=vector(obj.pos.x,obj.pos.y - 3,0),color=color.white,opacity=0,box=False)
+    textob = label(pos=vector(objb.pos.x,objb.pos.y - 3,0),color=color.white,opacity=0,box=False)
     textoaceleracao = label(pos=flechaaceleracao.pos,text=f'a = {a}²',color=color.white,opacity=0,box=False)
     textovelocidade = label(text=f'V ={obj.velocidade.x}',color=color.white,opacity=0,box=False)
     dt=0.01
     t=0
-    
-    while obj.forca.x <= f_a:
+    colisao = False
+    while objb.forca.x <= f_a:
         rate(100)
-        obj.velocidade = obj.velocidade + (obj.aceleracao * t)
         obj.forca.x = obj.massa.x * (obj.aceleracao.x * t)
-        obj.pos = obj.pos + (obj.forca * dt) #movimento do objeto
+        obj.pos = obj.pos + (obj.forca * dt) #posição
+        objb.forca.x = objb.massa.x * (objb.aceleracao.x*t)
+        objb.pos = objb.pos + (objb.forca * dt)
 
-        obj
+        distancia_x = abs(obj.pos.x - objb.pos.x)
+        colisao = distancia_x < (obj.radius + objb.radius)
+        if colisao:
+            objb.aceleracao.x = obj.forca.x / (obj.massa.x)
+            obj.forca.x =- obj.forca.x
+            
 
-        if obj.pos.x >= objb.pos.x:
-            obj.forca.x = obj.forca.x - objb.massa.x
+
         #labels:
         texto.pos.x = obj.pos.x # posição da label informando
         texto.text = f'M = {obj.massa.x}' #texto da label
@@ -737,20 +768,23 @@ def simulacao_ab(m_b,m_a,f_a,a):
         textoaceleracao.pos.x = flechaaceleracao.pos.x + 5
         textoaceleracao.pos.y = flechaaceleracao.pos.y + 1
         textoaceleracao.text = f'a = {obj.aceleracao.x}²'
+        textotempo.text = f'{t:.0f}s'
+        textotempo.pos = obj.pos
+        textotempo.pos.y = obj.pos.y - 5
 
         textovelocidade.pos = textoaceleracao.pos
         textovelocidade.pos.y = textoaceleracao.pos.y - 3
-        textovelocidade.text = f'F = {obj.forca.x}' 
+        textovelocidade.text = f'F = {objb.forca.x}' 
         #flecha:
         flecha.pos=objb.pos
         flecha.pos.y=objb.pos.y-0.5
-        flecha.pos.x=objb.pos.x+0.5
-        flecha.axis=objb.forca * 0.5 #Para onde a flecha aponta
+        flecha.pos.x=objb.pos.x+ objb.radius
+        flecha.axis=objb.forca #Para onde a flecha aponta
         #flecha da aceleração:
         flechaaceleracao.pos=obj.pos
         flechaaceleracao.pos.y=obj.pos.y + 0.5
-        flechaaceleracao.pos.x=obj.pos.x + 0.5
-        flechaaceleracao.axis=obj.aceleracao*0.5
+        flechaaceleracao.pos.x=obj.pos.x + obj.radius
+        flechaaceleracao.axis=obj.aceleracao
         scene.camera.follow(obj) #cenario
         t=t+dt
 menuprincipal = 20
@@ -759,7 +793,7 @@ while menuprincipal != 0:
     print(colored("\nbem vindo",attrs=["underline"]))
     print_red("[0] Sair do script")
     print_red("[9] Listar todas as fórmulas utilizadas")
-    print_yellow("\nCinemática: \n")
+    print_yellow("\nCinemática:")
     print_yellow("\n[1] Velocidade média")
     print_yellow("\n[2] Movimento uniforme (função horária do deslocamento)")
     print_yellow("\n[3] Movimento uniformemente variado")
